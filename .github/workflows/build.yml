@@ -1,5 +1,8 @@
 name: build
-on: push
+on:
+  push:
+    branches:
+      - update
 
 jobs:
   build-and-test:
@@ -26,11 +29,6 @@ jobs:
       - id: npm_pack
         name: Build npm package
         run: echo "::set-output name=package::$(npm pack)"
-      - name: Upload prebuilds
-        uses: actions/upload-artifact@v3
-        with:
-          name: package
-          path: ${{ steps.npm_pack.outputs.package }}
 
   lint:
     runs-on: ubuntu-latest
