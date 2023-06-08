@@ -31,7 +31,7 @@
         'zstd/lib/decompress/zstd_decompress.c',
       ],
       'cflags+': ['-fvisibility=hidden'],
-      'defines': ['ZSTD_MULTITHREAD', 'XXH_NAMESPACE=ZSTD_'],
+      'defines': ['ZSTD_MULTITHREAD', 'XXH_NAMESPACE=ZSTD_', "ZSTD_ENABLE_ASM_X86_64_BMI2"],
       'direct_dependent_settings': {
         'include_dirs': ['zstd/lib'],
       },
